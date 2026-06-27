@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bq727hxdlq0vs"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_enemy"]
+[ext_resource type="Texture2D" uid="uid://dclhhhc61yobx" path="res://icon.svg" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://duiv76phtyccf" path="res://scenes/gravity_component.tscn" id="3_grav"]
+[ext_resource type="PackedScene" uid="uid://bq727hxdlqaes" path="res://scenes/enemy_ai_component.tscn" id="4_eai"]
+[ext_resource type="PackedScene" uid="uid://d3e5dajrhoyfa" path="res://scenes/movement_component.tscn" id="5_move"]
+[ext_resource type="PackedScene" uid="uid://bpq1fh4qt103p" path="res://scenes/jump_component.tscn" id="6_jump"]
+[ext_resource type="PackedScene" uid="uid://b4lq0nblncmp1" path="res://scenes/balloon_component.tscn" id="7_blcmp"]
+[ext_resource type="PackedScene" uid="uid://cb1qhurtbox01" path="res://scenes/hurtbox_component.tscn" id="8_hurt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(68, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_feet"]
+size = Vector2(100, 16)
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"] node_paths=PackedStringArray("gravity_component", "ai_component", "movement_component", "jump_component", "balloon_component")]
+collision_mask = 254
+script = ExtResource("1_enemy")
+gravity_component = NodePath("GravityComponent")
+ai_component = NodePath("EnemyAIComponent")
+movement_component = NodePath("MovementComponent")
+jump_component = NodePath("JumpComponent")
+balloon_component = NodePath("BalloonComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.45, 0.45, 1)
+texture = ExtResource("2_qhqgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.9, 1.9)
+shape = SubResource("RectangleShape2D_body")
+
+[node name="GravityComponent" parent="." instance=ExtResource("3_grav")]
+
+[node name="EnemyAIComponent" parent="." instance=ExtResource("4_eai")]
+
+[node name="MovementComponent" parent="." instance=ExtResource("5_move")]
+speed = 55.0
+
+[node name="JumpComponent" parent="." instance=ExtResource("6_jump")]
+air_jump_velocity = -150.0
+
+[node name="BalloonComponent" parent="." instance=ExtResource("7_blcmp")]
+balloon_color = Color(0.3, 0.5, 0.95, 1)
+
+[node name="FeetArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FeetArea"]
+position = Vector2(0, 64)
+shape = SubResource("RectangleShape2D_feet")
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("character", "balloon_component") instance=ExtResource("8_hurt")]
+character = NodePath("..")
+balloon_component = NodePath("../BalloonComponent")

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b4lq0nbloon01"]
+
+[ext_resource type="Script" path="res://scripts/balloon.gd" id="1_blln"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_blln"]
+radius = 18.0
+
+[node name="Balloon" type="Area2D"]
+collision_layer = 4
+collision_mask = 9
+script = ExtResource("1_blln")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_blln")

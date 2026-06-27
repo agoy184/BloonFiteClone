@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b4lq0nblncmp1"]
+
+[ext_resource type="Script" path="res://scripts/balloon_component.gd" id="1_blcmp"]
+[ext_resource type="PackedScene" uid="uid://b4lq0nbloon01" path="res://scenes/balloon.tscn" id="2_blln"]
+
+[node name="BalloonComponent" type="Node2D"]
+script = ExtResource("1_blcmp")
+balloon_scene = ExtResource("2_blln")

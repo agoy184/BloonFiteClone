@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bgbmdlvmnqqwr" path="res://images/Floor.png" id="2_7fcka"]
 [ext_resource type="Shape2D" uid="uid://cpm76x1j07i4n" path="res://shapes/ground.tres" id="3_i7v7t"]
 [ext_resource type="PackedScene" uid="uid://bouqg0gcwecht" path="res://scenes/player.tscn" id="4_7fcka"]
+[ext_resource type="PackedScene" uid="uid://bq727hxdlq0vs" path="res://scenes/enemy.tscn" id="5_enemy"]
+[ext_resource type="PackedScene" uid="uid://bq727jkldgvns" path="res://scenes/game_over_screen.tscn" id="6_gover"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihldm"]
 texture = ExtResource("2_7fcka")
@@ -48,12 +50,21 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_vp3xs"]
 sources/0 = SubResource("TileSetAtlasSource_ihldm")
 
-[node name="GameSpace" type="Node2D" unique_id=1540539883]
+[node name="GameSpace" type="Node2D" unique_id=1540539883 node_paths=PackedStringArray("player_hurtbox", "enemy_hurtbox", "game_over_screen")]
 script = ExtResource("1_rcshh")
+player_hurtbox = NodePath("Player/HurtboxComponent")
+enemy_hurtbox = NodePath("Enemy/HurtboxComponent")
+game_over_screen = NodePath("GameOverScreen")
 
 [node name="Player" parent="." unique_id=1038483898 instance=ExtResource("4_7fcka")]
 position = Vector2(257, 279)
 scale = Vector2(0.25, 0.25)
+
+[node name="Enemy" parent="." instance=ExtResource("5_enemy")]
+position = Vector2(900, 150)
+scale = Vector2(0.25, 0.25)
+
+[node name="GameOverScreen" parent="." instance=ExtResource("6_gover")]
 
 [node name="Tiles" type="TileMapLayer" parent="." unique_id=196078945]
 position = Vector2(0, 331.51)

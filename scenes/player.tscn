@@ -7,17 +7,23 @@
 [ext_resource type="PackedScene" uid="uid://d3e5dajrhoyfa" path="res://scenes/movement_component.tscn" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://bpq1fh4qt103p" path="res://scenes/jump_component.tscn" id="6_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://bp8ee0eeujqwa" path="res://scenes/animation_component.tscn" id="7_fjrip"]
+[ext_resource type="PackedScene" uid="uid://b4lq0nblncmp1" path="res://scenes/balloon_component.tscn" id="8_blcmp"]
+[ext_resource type="PackedScene" uid="uid://cb1qhurtbox01" path="res://scenes/hurtbox_component.tscn" id="9_hurt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vp3xs"]
 size = Vector2(68, 70)
 
-[node name="Player" type="CharacterBody2D" unique_id=1038483898 node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "jump_component")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_feet"]
+size = Vector2(100, 16)
+
+[node name="Player" type="CharacterBody2D" groups=["player"] unique_id=1038483898 node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "jump_component", "balloon_component")]
 collision_mask = 254
 script = ExtResource("1_g2els")
 gravity_component = NodePath("GravityComponent")
 input_component = NodePath("InputComponent")
 movement_component = NodePath("MovementComponent")
 jump_component = NodePath("JumpComponent")
+balloon_component = NodePath("BalloonComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1286408447]
 texture = ExtResource("2_qhqgy")
@@ -36,3 +42,18 @@ shape = SubResource("RectangleShape2D_vp3xs")
 
 [node name="AnimationComponent" parent="." unique_id=1627366857 node_paths=PackedStringArray("sprite") instance=ExtResource("7_fjrip")]
 sprite = NodePath("../Sprite2D")
+
+[node name="BalloonComponent" parent="." instance=ExtResource("8_blcmp")]
+
+[node name="FeetArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FeetArea"]
+position = Vector2(0, 64)
+shape = SubResource("RectangleShape2D_feet")
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("character", "balloon_component") instance=ExtResource("9_hurt")]
+character = NodePath("..")
+balloon_component = NodePath("../BalloonComponent")
