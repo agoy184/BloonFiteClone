@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bjrbbcybg0j5m" path="res://scenes/input_component.tscn" id="4_dqkch"]
 [ext_resource type="PackedScene" uid="uid://d3e5dajrhoyfa" path="res://scenes/movement_component.tscn" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://bpq1fh4qt103p" path="res://scenes/jump_component.tscn" id="6_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://bp8ee0eeujqwa" path="res://scenes/animation_component.tscn" id="7_fjrip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vp3xs"]
 size = Vector2(68, 70)
@@ -32,3 +33,6 @@ shape = SubResource("RectangleShape2D_vp3xs")
 [node name="MovementComponent" parent="." unique_id=1187000821 instance=ExtResource("5_qlg0r")]
 
 [node name="JumpComponent" parent="." unique_id=793193104 instance=ExtResource("6_tuyoq")]
+
+[node name="AnimationComponent" parent="." unique_id=1627366857 node_paths=PackedStringArray("sprite") instance=ExtResource("7_fjrip")]
+sprite = NodePath("../Sprite2D")
