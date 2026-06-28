@@ -23,6 +23,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_balloon_body_entered(body: Node2D) -> void:
+	animation_component.death = true
 	animation_component.handle_death_animation()
 	movement_component.handle_death(self)
 	set_collision_layer_value(1, false)

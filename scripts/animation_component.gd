@@ -3,14 +3,20 @@ class_name AnimationComponent
 
 @export_subgroup("Nodes")
 @export var sprite: AnimatedSprite2D
+var death = false
+
 
 func handle_horizontal_flip(move_direction: float) -> void:
+	if death == true:
+		return
 	if move_direction == 0:
 		return
 		
 	sprite.flip_h = false if move_direction > 0 else true
 
 func handle_move_animation (move_direction: float) -> void:
+	if death == true:
+		return
 	handle_horizontal_flip(move_direction)
 	
 	if move_direction != 0:
@@ -19,6 +25,8 @@ func handle_move_animation (move_direction: float) -> void:
 		sprite.play("idle")
 		
 func handle_jump_animation(is_jumping: bool, is_falling: bool) -> void:
+	if death == true:
+		return
 	if is_jumping:
 		sprite.play("jump")
 	elif is_falling:
@@ -26,6 +34,6 @@ func handle_jump_animation(is_jumping: bool, is_falling: bool) -> void:
 		sprite.play("idle")
 		
 func handle_death_animation() -> void:
+	
 	sprite.play("pop")
-	await sprite.animation_finished
-	sprite.play("fall")
+	
