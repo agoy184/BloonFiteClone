@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dw13twtu7yfkx"
+path="res://.godot/imported/Balloon Pump.wav-05578751c8ac92b547738d912a2b889b.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/Balloon Pump.wav"
+dest_files=["res://.godot/imported/Balloon Pump.wav-05578751c8ac92b547738d912a2b889b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

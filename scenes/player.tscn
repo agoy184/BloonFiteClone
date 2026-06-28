@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://bouqg0gcwecht"]
 
 [ext_resource type="Script" uid="uid://dt6d8eiqikfl4" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://kv30i2rlmgar" path="res://images/fallingMain.png" id="2_fjrip"]
+[ext_resource type="Texture2D" uid="uid://kv30i2rlmgar" path="res://images/sprites/fallingMain.png" id="2_fjrip"]
 [ext_resource type="PackedScene" uid="uid://duiv76phtyccf" path="res://scenes/gravity_component.tscn" id="3_qhqgy"]
-[ext_resource type="Texture2D" uid="uid://tniwjxsb782d" path="res://images/flyingMain4.png" id="3_smehm"]
+[ext_resource type="Texture2D" uid="uid://tniwjxsb782d" path="res://images/sprites/flyingMain4.png" id="3_smehm"]
 [ext_resource type="PackedScene" uid="uid://bjrbbcybg0j5m" path="res://scenes/input_component.tscn" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://mw8gia2032g5" path="res://images/sprites/burstFallMain.png" id="4_ur7pv"]
 [ext_resource type="PackedScene" uid="uid://d3e5dajrhoyfa" path="res://scenes/movement_component.tscn" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://bpq1fh4qt103p" path="res://scenes/jump_component.tscn" id="6_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://bp8ee0eeujqwa" path="res://scenes/animation_component.tscn" id="7_fjrip"]
@@ -53,6 +54,34 @@ region = Rect2(75, 0, 25, 45)
 atlas = ExtResource("3_smehm")
 region = Rect2(75, 0, 25, 45)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
+atlas = ExtResource("4_ur7pv")
+region = Rect2(0, 0, 25, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l71n6"]
+atlas = ExtResource("4_ur7pv")
+region = Rect2(25, 0, 25, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke2ow"]
+atlas = ExtResource("4_ur7pv")
+region = Rect2(49, 0, 37, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujl30"]
+atlas = ExtResource("4_ur7pv")
+region = Rect2(85, 0, 40, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31cv2"]
+atlas = ExtResource("4_ur7pv")
+region = Rect2(125, 0, 46, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf23h"]
+atlas = ExtResource("4_ur7pv")
+region = Rect2(171, 0, 46, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt7fs"]
+atlas = ExtResource("4_ur7pv")
+region = Rect2(217, 0, 46, 75)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
 atlas = ExtResource("3_smehm")
 region = Rect2(0, 0, 25, 45)
@@ -92,7 +121,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"fall",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -181,6 +210,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_4ni07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l71n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke2ow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujl30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31cv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf23h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt7fs")
+}],
+"loop": 1,
+"name": &"pop",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_fulsm")
 }, {
 "duration": 1.0,
@@ -228,14 +283,14 @@ jump_component = NodePath("JumpComponent")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1950529116]
 position = Vector2(-1, -9)
 sprite_frames = SubResource("SpriteFrames_vp3xs")
-animation = &"fly"
+animation = &"idle"
 
 [node name="BodyCollision" type="CollisionShape2D" parent="." unique_id=973473215]
 position = Vector2(0, 7.76087)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_jjtej")
 
-[node name="Balloon" type="Area2D" parent="." unique_id=1916963737]
+[node name="Balloon" type="Area2D" parent="." unique_id=1916963737 groups=["Player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Balloon" unique_id=121224422]
 position = Vector2(0, -19)
@@ -252,4 +307,4 @@ shape = SubResource("CapsuleShape2D_iy1hc")
 [node name="AnimationComponent" parent="." unique_id=1627366857 node_paths=PackedStringArray("sprite") instance=ExtResource("7_fjrip")]
 sprite = NodePath("../AnimatedSprite2D")
 
-[connection signal="area_entered" from="Balloon" to="." method="_on_balloon_area_entered"]
+[connection signal="body_entered" from="Balloon" to="." method="_on_balloon_body_entered"]

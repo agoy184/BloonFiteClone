@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://csyy68cmpcku6"
+path="res://.godot/imported/Get Pumped! (Gameplay).mp3-1de95a730bfcfd3a9ce25872890de545.mp3str"
+
+[deps]
+
+source_file="res://sounds/Get Pumped! (Gameplay).mp3"
+dest_files=["res://.godot/imported/Get Pumped! (Gameplay).mp3-1de95a730bfcfd3a9ce25872890de545.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -18,9 +18,13 @@ func _physics_process(delta: float) -> void:
 	animation_component.handle_jump_animation(jump_component.is_jumping, gravity_component.is_falling)
 	
 	move_and_slide()
-
-
-func _on_balloon_area_entered(area: Area2D) -> void:
-	animation_component.death(self)
-	movement_component.death(self)
 	
+	
+
+
+func _on_balloon_body_entered(body: Node2D) -> void:
+	animation_component.handle_death_animation()
+	movement_component.handle_death(self)
+	set_collision_layer_value(1, false)
+	set_collision_mask_value(1, false)
+	set_collision_mask_value(3, false)

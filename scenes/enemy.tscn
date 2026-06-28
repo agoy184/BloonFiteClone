@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b2iabskq2cve8" path="res://scripts/enemy.gd" id="1_c4w8v"]
 [ext_resource type="PackedScene" uid="uid://bpq1fh4qt103p" path="res://scenes/jump_component.tscn" id="2_5uy6h"]
-[ext_resource type="Texture2D" uid="uid://dsmaivgpmcam5" path="res://images/pigBalloon.png" id="2_c4w8v"]
+[ext_resource type="Texture2D" uid="uid://dsmaivgpmcam5" path="res://images/sprites/pigBalloon.png" id="2_c4w8v"]
 [ext_resource type="PackedScene" uid="uid://d3e5dajrhoyfa" path="res://scenes/movement_component.tscn" id="3_c4w8v"]
 [ext_resource type="PackedScene" uid="uid://duiv76phtyccf" path="res://scenes/gravity_component.tscn" id="4_xwavj"]
+[ext_resource type="PackedScene" path="res://scenes/follow_component.tscn" id="5_follow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
 atlas = ExtResource("2_c4w8v")
@@ -56,13 +57,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1hc"]
 size = Vector2(56, 36)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1807892313 node_paths=PackedStringArray("jump_component", "movement_component", "gravity_component") groups=["Enemy"]]
-collision_layer = 2
+[node name="Enemy" type="CharacterBody2D" unique_id=1807892313 node_paths=PackedStringArray("jump_component", "movement_component", "gravity_component", "follow_component") groups=["Enemy"]]
+collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_c4w8v")
 jump_component = NodePath("JumpComponent")
 movement_component = NodePath("MovementComponent")
 gravity_component = NodePath("GravityComponent")
+follow_component = NodePath("FollowComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=112880881]
 scale = Vector2(3, 3)
@@ -70,7 +72,7 @@ sprite_frames = SubResource("SpriteFrames_vp3xs")
 animation = &"jump"
 frame_progress = 0.41247994
 
-[node name="BodyCollision" type="CollisionShape2D" parent="." unique_id=741600045]
+[node name="BodyCollision" type="CollisionShape2D" parent="." unique_id=741600045 groups=["Enemy"]]
 position = Vector2(0, 46)
 shape = SubResource("RectangleShape2D_iy1hc")
 
@@ -79,3 +81,5 @@ shape = SubResource("RectangleShape2D_iy1hc")
 [node name="MovementComponent" parent="." unique_id=1187000821 instance=ExtResource("3_c4w8v")]
 
 [node name="GravityComponent" parent="." unique_id=1678593358 instance=ExtResource("4_xwavj")]
+
+[node name="FollowComponent" parent="." unique_id=176644470 instance=ExtResource("5_follow")]
