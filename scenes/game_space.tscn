@@ -52,6 +52,7 @@ sources/0 = SubResource("TileSetAtlasSource_ihldm")
 
 [node name="GameSpace" type="Node2D" unique_id=1540539883]
 script = ExtResource("1_rcshh")
+level_id = "level_1"
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1357515212]
 position = Vector2(640, 360)
