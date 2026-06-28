@@ -1,26 +1,77 @@
 [gd_scene format=3 uid="uid://1ln65embo7ng"]
 
-[ext_resource type="Texture2D" uid="uid://dclhhhc61yobx" path="res://icon.svg" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://b2iabskq2cve8" path="res://scripts/enemy.gd" id="1_c4w8v"]
 [ext_resource type="PackedScene" uid="uid://bpq1fh4qt103p" path="res://scenes/jump_component.tscn" id="2_5uy6h"]
+[ext_resource type="Texture2D" uid="uid://dsmaivgpmcam5" path="res://images/pigBalloon.png" id="2_c4w8v"]
 [ext_resource type="PackedScene" uid="uid://d3e5dajrhoyfa" path="res://scenes/movement_component.tscn" id="3_c4w8v"]
 [ext_resource type="PackedScene" uid="uid://duiv76phtyccf" path="res://scenes/gravity_component.tscn" id="4_xwavj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1hc"]
-size = Vector2(129, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
+atlas = ExtResource("2_c4w8v")
+region = Rect2(170, 0, 19, 43)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1807892313 node_paths=PackedStringArray("jump_component", "movement_component", "gravity_componenet") groups=["Enemy"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nenq2"]
+atlas = ExtResource("2_c4w8v")
+region = Rect2(113, 0, 19, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md484"]
+atlas = ExtResource("2_c4w8v")
+region = Rect2(132, 0, 19, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipns3"]
+atlas = ExtResource("2_c4w8v")
+region = Rect2(151, 0, 19, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vp3xs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwavj")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwavj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nenq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md484")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipns3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwavj")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1hc"]
+size = Vector2(56, 36)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1807892313 node_paths=PackedStringArray("jump_component", "movement_component", "gravity_component") groups=["Enemy"]]
 collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_c4w8v")
 jump_component = NodePath("JumpComponent")
 movement_component = NodePath("MovementComponent")
-gravity_componenet = NodePath("GravityComponent")
+gravity_component = NodePath("GravityComponent")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=6500379]
-texture = ExtResource("1_7p1mj")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=112880881]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_vp3xs")
+animation = &"jump"
+frame_progress = 0.41247994
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=741600045]
-position = Vector2(-0.5, 0)
+[node name="BodyCollision" type="CollisionShape2D" parent="." unique_id=741600045]
+position = Vector2(0, 46)
 shape = SubResource("RectangleShape2D_iy1hc")
 
 [node name="JumpComponent" parent="." unique_id=793193104 instance=ExtResource("2_5uy6h")]

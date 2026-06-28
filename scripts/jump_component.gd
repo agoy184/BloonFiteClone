@@ -16,4 +16,4 @@ func handle_jump(body:CharacterBody2D, want_to_jump: bool) -> void:
 	is_jumping = body.velocity.y < 0 and not body.is_on_floor()
 
 func handle_enemy_jump(body:CharacterBody2D) -> void:
-	body.velocity.y = -1000
+	body.velocity.y = -700
