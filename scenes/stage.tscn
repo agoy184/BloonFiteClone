@@ -1,0 +1,208 @@
+[gd_scene format=3 uid="uid://cdnjp4ntu0emh"]
+
+[ext_resource type="Texture2D" uid="uid://d022qufoli6oo" path="res://images/sprites/tiles.png" id="1_8rem4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy1hc"]
+atlas = ExtResource("1_8rem4")
+region = Rect2(0, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi7kc"]
+atlas = ExtResource("1_8rem4")
+region = Rect2(23, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rem4"]
+atlas = ExtResource("1_8rem4")
+region = Rect2(0, 23, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kewym"]
+atlas = ExtResource("1_8rem4")
+region = Rect2(23, 23, 22, 22)
+
+[node name="Stage" type="Node2D" unique_id=1478801831]
+
+[node name="pallate" type="Node2D" parent="." unique_id=46495341]
+
+[node name="Block1" type="Sprite2D" parent="pallate" unique_id=1178378951]
+position = Vector2(-510, 994)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block2" type="Sprite2D" parent="pallate" unique_id=172556253]
+position = Vector2(-436, 994)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_gi7kc")
+
+[node name="Block3" type="Sprite2D" parent="pallate" unique_id=365442768]
+position = Vector2(-510, 1065)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_8rem4")
+
+[node name="Block4" type="Sprite2D" parent="pallate" unique_id=1227271601]
+position = Vector2(-437, 1066)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_kewym")
+
+[node name="Block1" type="Sprite2D" parent="." unique_id=506482622]
+position = Vector2(326, 616)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block2" type="Sprite2D" parent="." unique_id=1958835573]
+position = Vector2(392, 616)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block3" type="Sprite2D" parent="." unique_id=1057521668]
+position = Vector2(458, 616)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block4" type="Sprite2D" parent="." unique_id=30818459]
+position = Vector2(524, 616)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block5" type="Sprite2D" parent="." unique_id=1745813283]
+position = Vector2(590, 616)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block6" type="Sprite2D" parent="." unique_id=1660874274]
+position = Vector2(656, 616)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block7" type="Sprite2D" parent="." unique_id=1001276505]
+position = Vector2(722, 616)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block8" type="Sprite2D" parent="." unique_id=1766131118]
+position = Vector2(788, 616)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block9" type="Sprite2D" parent="." unique_id=1602868902]
+position = Vector2(854.00006, 616)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block10" type="Sprite2D" parent="." unique_id=1065860476]
+position = Vector2(920.00006, 616)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_8rem4")
+
+[node name="Block14" type="Sprite2D" parent="." unique_id=1119347610]
+position = Vector2(260.00006, 616)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_8rem4")
+
+[node name="Block18" type="Sprite2D" parent="." unique_id=964420462]
+position = Vector2(260, 352)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_gi7kc")
+
+[node name="Block19" type="Sprite2D" parent="." unique_id=1133048779]
+position = Vector2(920, 352)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_gi7kc")
+flip_h = true
+
+[node name="Block15" type="Sprite2D" parent="." unique_id=96060899]
+position = Vector2(260, 418)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_kewym")
+
+[node name="Block16" type="Sprite2D" parent="." unique_id=2014578247]
+position = Vector2(260, 484)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_kewym")
+
+[node name="Block17" type="Sprite2D" parent="." unique_id=428003116]
+position = Vector2(260, 550)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_kewym")
+
+[node name="Block20" type="Sprite2D" parent="." unique_id=2134993005]
+position = Vector2(920, 418)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_kewym")
+flip_h = true
+
+[node name="Block21" type="Sprite2D" parent="." unique_id=1386257774]
+position = Vector2(920, 484)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_kewym")
+flip_h = true
+
+[node name="Block22" type="Sprite2D" parent="." unique_id=966261790]
+position = Vector2(920, 550)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_kewym")
+flip_h = true
+
+[node name="Block11" type="Sprite2D" parent="." unique_id=1363769805]
+position = Vector2(194, 352)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block12" type="Sprite2D" parent="." unique_id=946943589]
+position = Vector2(128, 352)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block13" type="Sprite2D" parent="." unique_id=1214872215]
+position = Vector2(194, 352)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block23" type="Sprite2D" parent="." unique_id=1938332409]
+position = Vector2(128, 352)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block24" type="Sprite2D" parent="." unique_id=590343270]
+position = Vector2(62, 352)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block25" type="Sprite2D" parent="." unique_id=214119124]
+position = Vector2(-4, 352)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block26" type="Sprite2D" parent="." unique_id=1581355170]
+position = Vector2(986.00006, 352)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block27" type="Sprite2D" parent="." unique_id=588092008]
+position = Vector2(1052, 352)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block28" type="Sprite2D" parent="." unique_id=582733984]
+position = Vector2(1118, 286)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_gi7kc")
+flip_h = true
+
+[node name="Block29" type="Sprite2D" parent="." unique_id=1041209839]
+position = Vector2(1118, 352)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_8rem4")
+
+[node name="Block30" type="Sprite2D" parent="." unique_id=1457556998]
+position = Vector2(1316, 286)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block31" type="Sprite2D" parent="." unique_id=252855044]
+position = Vector2(1250, 286)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")
+
+[node name="Block32" type="Sprite2D" parent="." unique_id=822183989]
+position = Vector2(1184, 286)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_iy1hc")

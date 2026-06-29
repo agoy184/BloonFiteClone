@@ -2,14 +2,18 @@ extends Node
 class_name MovementComponent
 
 @export_subgroup("Settings")
-@export var speed: float = 100
+@export var speed: float = 165
 @export var ground_accel_speed: float = 10.0
 @export var ground_decel_speed: float = 8.0
 @export var air_accel_speed: float = 10.0
 @export var air_decel_speed: float = 3.0
 
+var death: bool = false
+
 
 func handle_horizontal_movement(body: CharacterBody2D, direction: float) -> void:
+	if death == true:
+		return
 	var velocity_change_speed: float = 0.0
 	if body.is_on_floor():
 		velocity_change_speed = ground_accel_speed if direction != 0 else ground_decel_speed
@@ -19,5 +23,6 @@ func handle_horizontal_movement(body: CharacterBody2D, direction: float) -> void
 	body.velocity.x = move_toward(body.velocity.x, direction * speed, velocity_change_speed)
 
 func handle_death(body: CharacterBody2D) -> void:
+	death = true
 	body.velocity.x = 0
-	body.velocity.y = 500
+	body.velocity.y = -100

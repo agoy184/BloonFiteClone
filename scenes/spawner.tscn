@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c27jq2agq2idq"]
+
+[ext_resource type="Script" uid="uid://v2ui5uoku833" path="res://scripts/spawner.gd" id="1_2vbf6"]
+[ext_resource type="PackedScene" uid="uid://1ln65embo7ng" path="res://scenes/enemy.tscn" id="2_ik2nu"]
+
+[node name="Spawner" type="Node2D" unique_id=1180625558]
+script = ExtResource("1_2vbf6")
+enemy_scene = ExtResource("2_ik2nu")
+
+[node name="Timer" type="Timer" parent="." unique_id=1868971534]
+wait_time = 6.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

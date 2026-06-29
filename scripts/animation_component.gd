@@ -30,10 +30,8 @@ func handle_jump_animation(is_jumping: bool, is_falling: bool) -> void:
 	if is_jumping:
 		sprite.play("jump")
 	elif is_falling:
-		await sprite.animation_finished
 		sprite.play("idle")
 		
 func handle_death_animation() -> void:
-	
 	sprite.play("pop")
 	
